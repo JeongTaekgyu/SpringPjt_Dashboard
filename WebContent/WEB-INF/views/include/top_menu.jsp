@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:url var='root' value='/'/>
-<!-- value='/'를 이용한 ContextPath를 포함한 절대경로를 구하게 된다. -->
+<c:set var ='root' value="${pageContext.request.contextPath}/"/>
+
 <!-- 상단 메뉴 부분 -->
 <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top shadow-lg">
 	<a class="navbar-brand" href="${root}main">SoftCampus</a> <!-- el로 출력 -->
