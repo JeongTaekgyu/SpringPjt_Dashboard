@@ -5,7 +5,7 @@
 
 <!-- 상단 메뉴 부분 -->
 <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top shadow-lg">
-	<a class="navbar-brand" href="${root}main">SoftCampus</a> <!-- el로 출력 -->
+	<a class="navbar-brand" href="${root}main">DashBoard</a> <!-- el로 출력 -->
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
 	        data-target="#navMenu">
 		<span class="navbar-toggler-icon"></span>        
