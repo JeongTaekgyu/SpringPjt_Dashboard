@@ -24,6 +24,12 @@ public class UserValidator implements Validator{
 			errors.rejectValue("user_pw", "NotEquals");	// NotEquals는 error_message.properties에서도 사용되는 것 같다.
 			errors.rejectValue("user_pw2", "NotEquals");
 		}
+		
+		if(userBean.isUserIdExist() == false) {
+			errors.rejectValue("user_id", "DontCheckUserIdExist");
+		}
 	}
+	
+	
 
 }

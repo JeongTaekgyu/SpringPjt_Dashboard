@@ -23,6 +23,13 @@ public class UserBean {
 	@Pattern(regexp = "[a-zA-Z0-9]*")	// 영어와 숫자만 입력
 	private String user_pw2;
 	
+	private boolean userIdExist;
+	
+	public UserBean() {
+		this.userIdExist = false;	// 최초 false값으로 만듦
+	}
+	
+	
 	public int getUser_idx() {
 		return user_idx;
 	}
@@ -52,6 +59,14 @@ public class UserBean {
 	}
 	public void setUser_pw2(String user_pw2) {
 		this.user_pw2 = user_pw2;
+	}
+
+	public boolean isUserIdExist() {
+		return userIdExist;
+	}
+
+	public void setUserIdExist(boolean userIdExist) {
+		this.userIdExist = userIdExist;
 	}
 	
 	

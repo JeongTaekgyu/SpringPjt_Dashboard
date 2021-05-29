@@ -15,6 +15,40 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </head>
+
+<script>
+	function checkUserIdExist(){
+		
+		var user_id = $("#user_id").val()
+		
+		if(user_id.length == 0){
+			alert('아이디를 입력해주세요');
+			return;
+		}
+		
+		// 상단에 jquery를 가져다 쓰기때문에 가능한 jquery ajax문법
+		$.ajax({
+			url : '${root}user/checkUserIdExist/' + user_id,
+			type : 'get',	// 요청방식
+			dataType : 'text', // 응답결과 타입
+			success : function(result){
+				if(result.trim() == 'true'){
+					alert('사용할 수 있는 아이디입니다.');
+					$("#userIdExist").val('true');
+				} else{
+					alert('사용할 수 없는 아이디입니다.');
+					$("#userIdExist").val('false');
+				}
+			}
+		})
+	}
+	
+	function resetUserIdExist(){
+		// jquery 선택자만 제대로 알아도 디버깅 시간 확 줄일 수 있었다..
+		$("#userIdExist").val('false');	// 사용자 아이디를 입력하는 칸에 키보드를 누르면 무조건 false를 셋팅한다.
+	}
+</script>
+
 <body>
 
 <c:import url="/WEB-INF/views/include/top_menu.jsp"/>
@@ -27,6 +61,7 @@
 				<div class="card-body">
 					<!-- 스프링에서 제공하는 form태그,  ModelAttribute는  -->
 					<form:form action="${root}user/join_pro" method='post' modelAttribute="joinUserBean">
+						<form:hidden path="userIdExist"/>
 						<div class="form-group">
 							<form:label path="user_name">이름</form:label>	<!-- bean에있는 user_name 이다, 이하 동일-->
 							<form:input path="user_name" class="form-control"/>
@@ -35,9 +70,9 @@
 						<div class="form-group">
 							<form:label path="user_id">아이디</form:label>
 							<div class="input-group">
-								<form:input path="user_id" class="form-control"/>
+								<form:input path="user_id" class="form-control" onkeypress="resetUserIdExist()"/>
 								<div class="input-group-append">
-									<button type="button" class="btn btn-primary">중복확인</button>
+									<button type="button" class="btn btn-primary" onclick="checkUserIdExist()">중복확인</button>
 								</div>
 							</div>
 							<form:errors path="user_id" style="color:red"/>
