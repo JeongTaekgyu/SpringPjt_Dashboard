@@ -17,9 +17,6 @@
 <body>
 	
 <c:import url="/WEB-INF/views/include/top_menu.jsp"/>
-<!-- non-fast-forward 상태에서
-git pull origin main --allow-unrelated-histories 후에
-다시 commit -->
 
 <!-- 게시판 미리보기 부분 -->
 <div class="container" style="margin-top:100px">

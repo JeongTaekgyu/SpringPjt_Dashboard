@@ -18,12 +18,13 @@ public class TopMenuInterceptor implements HandlerInterceptor{
 	@Autowired
 	private TopMenuService topMenuService;
 	
+	// preHandle은 Controller의 메서드가 호출되기 전에 호출된다. 이 메서드가 false를 반환하면 요청처리에 대한 진행이 중단된다.
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		// TODO Auto-generated method stub
 		List<BoardInfoBean> topMenuList = topMenuService.getTopMenuList();
-		request.setAttribute("topMenuList", topMenuList);
+		request.setAttribute("topMenuList2", topMenuList);
 		// 데이터베이스에서 가져온 내용을 request영역에 저장을 하고 jsp로 이동하는 구조
 		
 		return true;

@@ -11,10 +11,10 @@
 	</button>
 	<div class="collapse navbar-collapse" id="navMenu">
 		<ul class="navbar-nav">
-			<c:forEach var='obj' items='${topMenuList }'>
-			<li class="nav-item">
-				<a href="${root }board/main?board_info_idx=${obj.board_info_idx}" class="nav-link">${obj.board_info_name }</a>
-			</li>
+			<c:forEach var='obj' items='${topMenuList2 }'>
+				<li class="nav-item">
+					<a href="${root }board/main?board_info_idx=${obj.board_info_idx}" class="nav-link">${obj.board_info_name }</a>
+				</li>
 			</c:forEach>
 		</ul>
 		

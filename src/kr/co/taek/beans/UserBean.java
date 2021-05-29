@@ -1,10 +1,27 @@
 package kr.co.taek.beans;
 
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 public class UserBean {
 	private int user_idx;
+	
+	// À¯È¿¼º °Ë»ç ¼ÂÆÃ
+	@Size(min=2, max=4)
+	@Pattern(regexp = "[°¡-ÆR]*")		// ÇÑ±Û¸¸ ÀÔ·Â
 	private String user_name;
+	
+	@Size(min=2, max=20)
+	@Pattern(regexp = "[a-zA-Z0-9]*")	// ¿µ¾î¿Í ¼ıÀÚ¸¸ ÀÔ·Â
 	private String user_id;
+	
+	@Size(min=2, max=20)
+	@Pattern(regexp = "[a-zA-Z0-9]*")	// ¿µ¾î¿Í ¼ıÀÚ¸¸ ÀÔ·Â
 	private String user_pw;
+	
+	@Size(min=2, max=20)
+	@Pattern(regexp = "[a-zA-Z0-9]*")	// ¿µ¾î¿Í ¼ıÀÚ¸¸ ÀÔ·Â
+	private String user_pw2;
 	
 	public int getUser_idx() {
 		return user_idx;
@@ -29,6 +46,12 @@ public class UserBean {
 	}
 	public void setUser_pw(String user_pw) {
 		this.user_pw = user_pw;
+	}
+	public String getUser_pw2() {
+		return user_pw2;
+	}
+	public void setUser_pw2(String user_pw2) {
+		this.user_pw2 = user_pw2;
 	}
 	
 	

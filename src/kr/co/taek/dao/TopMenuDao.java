@@ -14,7 +14,7 @@ public class TopMenuDao {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
-	public List<BoardInfoBean> getTopMenuList(){
+	public List<BoardInfoBean> getTopMenuList(){				// mapper¿¡ ÀÖ´Â	namespace.id
 		List<BoardInfoBean> topMenuList = sqlSessionTemplate.selectList("topmenu.get_topmenu_list");
 		return topMenuList;
 	}

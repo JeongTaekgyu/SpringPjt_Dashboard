@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <c:set var ='root' value="${pageContext.request.contextPath}/"/>
 <!DOCTYPE html>
 <html>
@@ -24,7 +25,40 @@
 		<div class="col-sm-6">
 			<div class="card shadow">
 				<div class="card-body">
-					<form action="${root }user/login" method="get">
+					<!-- 스프링에서 제공하는 form태그,  ModelAttribute는  -->
+					<form:form action="${root}user/join_pro" method='post' modelAttribute="joinUserBean">
+						<div class="form-group">
+							<form:label path="user_name">이름</form:label>	<!-- bean에있는 user_name 이다, 이하 동일-->
+							<form:input path="user_name" class="form-control"/>
+							<form:errors path="user_name" style="color:red"/>
+						</div>
+						<div class="form-group">
+							<form:label path="user_id">아이디</form:label>
+							<div class="input-group">
+								<form:input path="user_id" class="form-control"/>
+								<div class="input-group-append">
+									<button type="button" class="btn btn-primary">중복확인</button>
+								</div>
+							</div>
+							<form:errors path="user_id" style="color:red"/>
+						</div>
+						<div class="form-group">
+							<form:label path="user_pw">비밀번호</form:label>
+							<form:password path="user_pw" class="form-control"/>
+							<form:errors path="user_pw" style="color:red"/>
+						</div>
+						<div class="form-group">
+							<form:label path="user_pw2">비밀번호 확인</form:label>
+							<form:password path="user_pw2" class="form-control"/>
+							<form:errors path="user_pw2" style="color:red"/>
+						</div>
+						<div class="form-group">
+							<div class="text-right">
+								<form:button class="btn btn-primary">회원가입</form:button>
+							</div>
+						</div>
+					</form:form>
+					<%-- <form action="${root }user/login" method="get">
 						<div class="form-group">
 							<label for="user_name">이름</label>
 							<input type="text" id="user_name" name="user_name" class="form-control"/>
@@ -51,7 +85,7 @@
 								<button type="submit" class="btn btn-primary">회원가입</button>
 							</div>
 						</div>
-					</form>
+					</form> --%>
 				</div>
 			</div>
 		</div>
