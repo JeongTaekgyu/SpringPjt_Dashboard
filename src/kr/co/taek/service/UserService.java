@@ -3,6 +3,7 @@ package kr.co.taek.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.co.taek.beans.UserBean;
 import kr.co.taek.dao.UserDao;
 
 @Service
@@ -20,6 +21,10 @@ public class UserService {
 		} else {
 			return false;
 		}
+	}
+	
+	public void addUserInfo(UserBean joinUserBean) {
+		userDao.addUserInfo(joinUserBean);
 	}
 }
 

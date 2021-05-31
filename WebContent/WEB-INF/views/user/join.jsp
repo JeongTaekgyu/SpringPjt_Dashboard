@@ -61,7 +61,11 @@
 				<div class="card-body">
 					<!-- 스프링에서 제공하는 form태그,  ModelAttribute는  -->
 					<form:form action="${root}user/join_pro" method='post' modelAttribute="joinUserBean">
-						<form:hidden path="userIdExist"/>
+						<form:hidden path="userIdExist"/>	
+						<!-- 스프링mvc에서 제공하는 유효성검사를 이용하려면 form태그에 값이 들어가져 있어야지만
+							값을 서버에서 자동 주입받아서 밸리데이터를 통과해서 유효성검사를 할 수 있음
+							사용자가 유효성검사를 했는지 안했는지 확인하는 값을 서버로 보내야 하기 때문에
+							input 태그 하나 추가,	hidden 쓰면 값은 담을 수 있지만 보이지는 않음 -->
 						<div class="form-group">
 							<form:label path="user_name">이름</form:label>	<!-- bean에있는 user_name 이다, 이하 동일-->
 							<form:input path="user_name" class="form-control"/>
